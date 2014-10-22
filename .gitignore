@@ -2,3 +2,5 @@
 
 
 *.iml
+classes/
+*.war
