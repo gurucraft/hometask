@@ -4,3 +4,4 @@
 *.iml
 classes/
 *.war
+*.jar

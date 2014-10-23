@@ -11,6 +11,7 @@ version = '1.0'
 
 repositories {
     jcenter()
+    mavenCentral()
 }
 
 buildscript {
@@ -31,7 +32,7 @@ buildscript {
 
 dependencies {
 
-    def tomcatVersion = '7.0.47'
+    def tomcatVersion = '8.0.14'
     tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
             "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
     tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
