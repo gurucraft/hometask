@@ -59,4 +59,5 @@ dependencies {
 tomcatRunWar {
     contextPath = ""
     stopPort = 8191
+
 }

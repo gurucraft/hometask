@@ -4,24 +4,37 @@ import com.hometask.entity.Person;
 import com.hometask.service.PersonalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by guru on 21.10.14.
- * (@)Svitla Hata
- */
+
 @Controller
+@RequestMapping("/getPerson")
 public class GetPerson {
     @Autowired
     private PersonalService personalService;
 
-    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
-    public @ResponseBody List<Person> printHello() {
+    @RequestMapping(method = RequestMethod.GET)
+    public
+    @ResponseBody
+    List<Person> printHello() {
         return personalService.getAll();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    Person getPersonById(@PathVariable("id") long id) {
+        return personalService.getById(id);
+    }
+
+    @ResponseBody
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+    public Person addPerson(@RequestBody Person person, Model model) {
+        personalService.add(person);
+        return person;
     }
 
 }

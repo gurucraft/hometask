@@ -4,10 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
-/**
- * Created by guru on 21.10.14.
- * (@)Svitla Hata
- */
+
 @Entity
 @Table(name = "person")
 public class Person{
@@ -19,14 +16,14 @@ public class Person{
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
-    private String lasName;
+    private String lastName;
 
     public Person() {
     }
 
-    public Person(String firstName, String lasName) {
+    public Person(String firstName, String lastName) {
         this.firstName = firstName;
-        this.lasName = lasName;
+        this.lastName = lastName;
     }
 
     public long getId() {
@@ -45,12 +42,12 @@ public class Person{
         this.firstName = firstName;
     }
 
-    public String getLasName() {
-        return lasName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLasName(String lasName) {
-        this.lasName = lasName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override
@@ -58,7 +55,7 @@ public class Person{
         return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", lasName='" + lasName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }

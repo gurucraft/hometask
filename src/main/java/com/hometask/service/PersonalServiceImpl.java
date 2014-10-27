@@ -7,17 +7,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by guru on 21.10.14.
- * (@)Svitla Hata
- */
+
 @Service
 public class PersonalServiceImpl implements PersonalService {
     @Autowired
     PersonRepository personRepository;
 
     @Override
-    public Person addBank(Person person) {
+    public Person add(Person person) {
         return personRepository.saveAndFlush(person);
     }
 
@@ -33,7 +30,7 @@ public class PersonalServiceImpl implements PersonalService {
     }
 
     @Override
-    public Person editBank(Person person) {
+    public Person edit(Person person) {
 
         return personRepository.saveAndFlush(person);
     }
@@ -41,5 +38,10 @@ public class PersonalServiceImpl implements PersonalService {
     @Override
     public List<Person> getAll() {
         return personRepository.findAll();
+    }
+
+    @Override
+    public Person getById(long id) {
+        return personRepository.findOne(id);
     }
 }
